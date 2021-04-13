@@ -1,4 +1,4 @@
-const testPlugin = require('./plugin/test-plugin/index.js');
+const testPlugin = require('../../build/plugin/test-plugin/index.js');
 const path = require('path');
 
 module.exports = {
