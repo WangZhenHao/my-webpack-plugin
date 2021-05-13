@@ -1,4 +1,7 @@
 class FileListPlugin {
+  constructor(options) {
+    this.userOptions = options;
+  },
   apply(compiler) {
     // emit 是异步 hook，使用 tapAsync 触及它，还可以使用 tapPromise/tap(同步)
     compiler.hooks.emit.tapAsync('FileListPlugin', (compilation, callback) => {
@@ -10,8 +13,8 @@ class FileListPlugin {
       for (var filename in compilation.assets) {
         filelist += '- ' + filename + '\n';
       }
-      console.log(compiler)
-      const text = JSON.stringify(compilation.assets)
+      // console.log(compiler)
+      const text = JSON.stringify(filelist)
       // 将这个列表作为一个新的文件资源，插入到 webpack 构建中：
       compilation.assets['filelist.md'] = {
         source: function() {
