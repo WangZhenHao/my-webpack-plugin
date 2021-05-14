@@ -2,15 +2,17 @@ const testPlugin = require('../../src/index.js');
 const path = require('path');
 
 module.exports = {
+  mode: 'none',
   entry: {
-      app: path.join(__dirname, '../src/index.js')
+      app: path.join(__dirname, '../src/main.js')
   },
   output: {
-      path: path.resolve(__dirname, '../dist')
+      path: path.resolve(__dirname, '../dist'),
+      filename: 'main.js'
   },
   plugins: [
     new testPlugin({
-      template: '../public/index.html',
+      template: path.resolve('../public/index.html'),
       alias: {
         '@image': 'http://www.baidu.com'
       }
