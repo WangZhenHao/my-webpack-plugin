@@ -12,7 +12,8 @@ module.exports = {
   },
   plugins: [
     new testPlugin({
-      template: path.resolve('../public/index.html'),
+      template: path.resolve(__dirname, '../public/index.html'),
+      filename: 'myPlugin.html',
       alias: {
         '@image': 'http://www.baidu.com'
       }
