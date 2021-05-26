@@ -15,7 +15,8 @@ module.exports = {
       template: path.resolve(__dirname, '../public/index.html'),
       filename: 'myPlugin.html',
       alias: {
-        '@image': 'http://www.baidu.com'
+        '@image': 'http://www.baidu.com',
+        '@layout': path.resolve(__dirname, '../public/layout')
       }
     })
   ],

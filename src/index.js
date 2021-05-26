@@ -30,11 +30,11 @@ class MyPlugin {
         let text = fs.readFileSync(this.userOptions.template, 'utf8');
 
         text = text.replace(/\{\{\s?(\S+)\s?\}\}/g, (str, key) => {
-            for(let i in this.userOptions.alias) {
-                if(i === key) {
+            // for(let i in this.userOptions.alias) {
+            //     if(i === key) {
                     return this.userOptions.alias[key];
-                }
-            }
+            //     }
+            // }
         })
 
         compilation.assets[this.userOptions.filename] = {
@@ -45,6 +45,10 @@ class MyPlugin {
                 return text.length;
               }
         }
+    }
+
+    resolveIncludePath() {
+
     }
 }
 
