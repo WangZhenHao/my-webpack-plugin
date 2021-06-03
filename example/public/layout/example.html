@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = `
+        <% include @layout/header.html %>
+        <img src="<% @image %>/test/test.png">
+        <% include @layout/header.html %>
+        <h1></h1>`
+
+        var re = /\<\%\s?.*?\%\>/g;
+        var includeRe = /(\<\%\s?)(include)\s(\@[^\/]+)(\S+)(\s?\%\>)/;
+        var imageRe = /(\<\%\s?)(\S+)(\s?\%\>)/;
+        
+        function comiplerHtml(str) {
+            var arr = str.match(re) || []
+            var syntax = []
+
+            for(var i = 0; i < arr.length; i++) {
+                var express = ''
+
+                if(includeRe.test(arr[i])) {
+                    express = compiperInclude([RegExp.$3, RegExp.$4], arr[i])
+                } else if(imageRe.test(arr[i])) {
+                    express = compiperImage([RegExp.$2], arr[i])
+                }
+
+                syntax.push({
+                    text: arr[i],
+                    // express: express
+                })
+            }
+
+
+        }
+
+        function compiperInclude(matchArr, str) {
+            
+        }
+
+        function compiperImage(matchArr, str) {
+            
+        }
+
+
+
+
+        comiplerHtml(str)
+    </script>
+</body>
+</html>

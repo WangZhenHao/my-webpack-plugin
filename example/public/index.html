@@ -7,7 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    @include '@layout/header.html';
-    <img src="{{ @image }}/test/test.png">
+    <% include @layout/header.html %>
+    <img src="<% @image %>/test/test.png">
+    <% include @layout/footer.html %>
+    <script>
+        
+    </script>
 </body>
 </html>
