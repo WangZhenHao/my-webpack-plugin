@@ -15,7 +15,7 @@
         <h1></h1>`
 
         var re = /\<\%\s?.*?\%\>/g;
-        var includeRe = /(\<\%\s?)(include)\s(\@[^\/]+)(\S+)(\s?\%\>)/;
+        var includeRe = /(\<\%\s?)(include)\s([^\/]+)(\S+)(\s?\%\>)/;
         var imageRe = /(\<\%\s?)(\S+)(\s?\%\>)/;
         
         function comiplerHtml(str) {
@@ -33,7 +33,7 @@
 
                 syntax.push({
                     text: arr[i],
-                    // express: express
+                    express: express
                 })
             }
 
@@ -41,11 +41,11 @@
         }
 
         function compiperInclude(matchArr, str) {
-            
+            return str;
         }
 
         function compiperImage(matchArr, str) {
-            
+            return str;
         }
 
 
